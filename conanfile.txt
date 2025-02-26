@@ -1,0 +1,8 @@
+[requires]
+glfw/3.4
+glew/2.2.0
+
+
+[generators]
+PremakeDeps
+MakeDeps
