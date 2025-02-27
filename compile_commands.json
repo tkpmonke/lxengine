@@ -1,0 +1,21 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-DDEBUG",
+      "-Iinclude",
+      "-m64",
+      "-O2",
+      "-fPIC",
+      "-g",
+      "-std=c99",
+      "-c",
+      "-o",
+      "obj/Debug/scene.o",
+      "src/core/scene.c"
+    ],
+    "directory": "/home/turdle/Projects/lxengine",
+    "file": "/home/turdle/Projects/lxengine/src/core/scene.c",
+    "output": "/home/turdle/Projects/lxengine/obj/Debug/scene.o"
+  }
+]

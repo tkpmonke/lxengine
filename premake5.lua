@@ -10,7 +10,7 @@ function include_gl()
 end
 
 project "lxengine"
-   include_gl()   
+   -- include_gl()   
 
    kind "SharedLib"
    language "C"
@@ -23,7 +23,26 @@ project "lxengine"
 
    filter "configurations:Debug"
       defines { "DEBUG" }
+      --optimize "On"
+      symbols "On"
+
+   filter "configurations:Release"
+      defines { "NDEBUG" }
       optimize "On"
+
+project "lxeditor"
+   kind "ConsoleApp"
+   language "C"
+   cdialect "c99"
+   targetdir "bin"
+   includedirs { "include" }
+   files { "editor/**.c", "editor/**.h" }
+   
+   links { "lxengine", "m"}
+
+   filter "configurations:Debug"
+      defines { "DEBUG" }
+      --optimize "On"
       symbols "On"
 
    filter "configurations:Release"
