@@ -7,7 +7,6 @@
 * - resize
 * - front
 * - back
-* - append 
 */
 
 #include "utils/memory.h"
