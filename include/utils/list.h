@@ -7,7 +7,7 @@
 * - resize
 * - front
 * - back
-* - concat
+* - append 
 */
 
 #include "utils/memory.h"
@@ -22,20 +22,20 @@ typedef struct { \
 \
 \
 \
-x##_list create_##x##_list() { \
+static x##_list create_##x##_list() { \
    return (x##_list){0, 0, NULL}; \
 } \
 \
 \
 \
-void x##_list_reallocate(x##_list* list, unsigned int size) { \
+static void x##_list_reallocate(x##_list* list, unsigned int size) { \
    list->data = (x*)LZREALLOC(list->data, size*sizeof(x)); \
    list->capacity = size; \
 } \
 \
 \
 \
-void x##_list_push_back(x##_list* list, x* a) { \
+static void x##_list_push_back(x##_list* list, x* a) { \
    if (list->capacity == 0) { \
       x##_list_reallocate(list, 4); \
    } \
@@ -44,4 +44,19 @@ void x##_list_push_back(x##_list* list, x* a) { \
    } \
    list->data[list->size] = *a; \
    list->size++; \
+} \
+\
+\
+\
+static void x##_list_append(x##_list* a, x##_list* b) { \
+   a->size += b->size; \
+   x##_list_reallocate(a, a->size); \
+   memcpy(a->data+(a->size-b->size), b->data, b->size); \
+} \
+\
+\
+\
+static void x##_list_free(x##_list* a) { \
+   free(a->data); \
+   *a = (x##_list){0,0,NULL}; \
 }

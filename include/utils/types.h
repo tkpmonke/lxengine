@@ -14,3 +14,4 @@ MAKE_LIST(lxuint);
 MAKE_LIST(lxuchar);
 
 typedef char_list string;
+string to_string(char*);

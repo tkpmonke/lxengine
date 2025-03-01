@@ -1,0 +1,4 @@
+int name, 22;
+add 32, name;
+print_int name;
+print_str done;
