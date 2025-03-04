@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "utils/io.h"
+#include "rendering/buffer.h"
 
 int main(void) {
    int_list list = create_int_list();

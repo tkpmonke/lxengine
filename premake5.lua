@@ -1,17 +1,10 @@
 workspace "lxengine"
-
    architecture "x86_64"
-   configurations { "Debug", "Release"}
+   configurations { "debug", "release" }
 
-function include_gl() 
-   include "deps/conan_glew.premake5"
-   include "deps/conan_glfw.premake5"
-   include "deps/conan_opengl.premake5"
-end
+include 'thirdparty/include-deps.lua'
 
 project "lxengine"
-   -- include_gl()   
-
    kind "SharedLib"
    language "C"
    cdialect "c99"
@@ -21,12 +14,12 @@ project "lxengine"
    
    links { "GL", "m" }
 
-   filter "configurations:Debug"
+   filter "configurations:debug"
       defines { "DEBUG" }
       --optimize "On"
       symbols "On"
 
-   filter "configurations:Release"
+   filter "configurations:release"
       defines { "NDEBUG" }
       optimize "On"
 
@@ -40,11 +33,11 @@ project "lxeditor"
    
    links { "lxengine", "m"}
 
-   filter "configurations:Debug"
+   filter "configurations:debug"
       defines { "DEBUG" }
       --optimize "On"
       symbols "On"
 
-   filter "configurations:Release"
+   filter "configurations:release"
       defines { "NDEBUG" }
       optimize "On"

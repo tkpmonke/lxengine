@@ -4,3 +4,4 @@ obj/
 *.make
 *Make*
 deps/
+compile_commands.json

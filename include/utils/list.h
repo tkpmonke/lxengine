@@ -22,7 +22,11 @@ typedef struct { \
 \
 \
 static x##_list create_##x##_list() { \
-   return (x##_list){0, 0, NULL}; \
+   return (x##_list) { \
+      .size = 0, \
+      .capacity = 1, \
+      .data = malloc(sizeof(x)) \
+   }; \
 } \
 \
 \
@@ -58,4 +62,23 @@ static void x##_list_append(x##_list* a, x##_list* b) { \
 static void x##_list_free(x##_list* a) { \
    free(a->data); \
    *a = (x##_list){0,0,NULL}; \
+} \
+\
+\
+\
+static void x##_list_clear(x##_list* a) { \
+   x##_list_free(a); \
+   *a = create_##x##_list(); \
+} \
+\
+\
+\
+static x* x##_list_front(x##_list* a) { \
+   return a->data; \
+} \
+\
+\
+\
+static x* x##_list_end(x##_list* a) { \
+   return a->data+a->size; \
 }
