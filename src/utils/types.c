@@ -1,7 +1,7 @@
 #include "utils/types.h"
 
 #include <string.h>
-#include <stdio.h>
+#include "utils/io.h"
 
 string to_string(char* c) {
    int size = strlen(c);
@@ -13,6 +13,5 @@ string to_string(char* c) {
    s.data = memcpy(s.data, c, size);
 
    char_list_reallocate(&s, size);
-
    return s;
 }

@@ -8,9 +8,10 @@
 // for a custom allocator, i dont feel like writting
 // one so stdlib will have to do
 
-#define LZMALLOC malloc
-#define LZREALLOC realloc
-#define LZFREE free
+#define LXMALLOC malloc
+#define LXREALLOC realloc
+#define LXMEMCPY memcpy
+#define LXFREE free
 
 // how much to reallocate when running out of capacity on a list
-#define LZLIST_ALLOCATION_STEP 1.5f
+#define LXLIST_ALLOCATION_STEP 1.5f

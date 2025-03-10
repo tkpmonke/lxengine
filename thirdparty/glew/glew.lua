@@ -9,6 +9,8 @@ project "glew"
    
    links { "GL", "m" }
 
+   defines { "GLEW_NO_GLU", "GLEW_SHARED" }
+
    filter "configurations:debug"
       defines { "DEBUG" }
       --optimize "On"

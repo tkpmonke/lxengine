@@ -24,5 +24,4 @@ static struct {
    component_info_list components;
 } component_registry;
 
-void get_component_info(string name);
-void register_component(component_info);
+component_info get_component_info(string name);
