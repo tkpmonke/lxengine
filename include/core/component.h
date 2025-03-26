@@ -4,14 +4,19 @@
 
 typedef struct {
    lxuint id;
+   string type;
 
-   void (*start)();
-   void (*update)(float delta);
-   void (*shutdown)();
+   void (*start)(struct component* self);
+   void (*update)(struct component* self, float delta);
+   void (*on_destroy)(struct component* self);
 
 } component;
 MAKE_LIST(component);
 
+typedef component* componentptr;
+MAKE_LIST(componentptr);
+
+/*
 component create_component();
 
 typedef struct {
@@ -25,3 +30,4 @@ static struct {
 } component_registry;
 
 component_info get_component_info(string name);
+*/
